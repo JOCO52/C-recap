@@ -46,7 +46,17 @@ namespace Guess_the_Number
                     Guess = Convert.ToInt32(Console.ReadLine());
                     NoofAttempts = NoofAttempts + 1;
 
+                    if (NoofAttempts == 10)
+                    {
+                        break;
+                    }
 
+
+                }
+
+                if ( Guess != ranNumber)
+                {
+                    Console.WriteLine("game Over");
                 }
 
                 Console.WriteLine("Correct, it took you " + NoofAttempts + " attempts");
