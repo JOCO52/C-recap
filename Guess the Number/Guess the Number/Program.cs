@@ -21,7 +21,7 @@ namespace Guess_the_Number
                 Console.WriteLine("generating new number");
                 Random rand = new Random();
                 int NoofAttempts = 0;
-                int ranNumber = rand.Next(1, 10);
+                int ranNumber = rand.Next(1, 100);
                 Console.WriteLine("the number is " + ranNumber);
 
                 Console.WriteLine("enter a guess between 1 and 9");
@@ -42,8 +42,13 @@ namespace Guess_the_Number
                         Console.WriteLine("Guess Higher");
                     }
                     //Read a new guess from the player
-                    Console.WriteLine("enter a guess between 1 and 9");
+                    Console.WriteLine("enter a guess between 1 and 100");
                     Guess = Convert.ToInt32(Console.ReadLine());
+                    while (Guess > 99 || Guess < 1)
+                    {
+                        Console.WriteLine("please enter a valid answer");
+                        Guess = Convert.ToInt32(Console.ReadLine());
+                    }
                     NoofAttempts = NoofAttempts + 1;
 
                     if (NoofAttempts == 10)
