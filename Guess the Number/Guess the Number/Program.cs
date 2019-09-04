@@ -17,18 +17,23 @@ namespace Guess_the_Number
             Console.WriteLine("Guess A Randomly gnerated number");
 
             Random rand = new Random();
+            int NoofAttempts = 0;
             int ranNumber = rand.Next(1,10);
             Console.WriteLine("the number is " + ranNumber);
 
             Console.WriteLine("enter a guess between 1 and 9");
             int Guess = Convert.ToInt32(Console.ReadLine());
+            NoofAttempts = NoofAttempts + 1;
             Console.WriteLine("Youe Guessed " +   "" + Guess);
+
             if (ranNumber == Guess)
             {
                 Console.WriteLine("Correct");
             }
 
-            else
+            
+            
+            while (Guess != ranNumber)
             {
                 Console.WriteLine("Wrong Try Again");
 
@@ -39,10 +44,16 @@ namespace Guess_the_Number
                 else
                 {
                     Console.WriteLine("Guess Higher");
-                } 
+                }
+                //Read a new guess from the player
+                Console.WriteLine("enter a guess between 1 and 9");
+                Guess = Convert.ToInt32(Console.ReadLine());
+                NoofAttempts = NoofAttempts + 1;
+
+
             }
 
-
+            Console.WriteLine("Correct, it took you " + NoofAttempts + " attempts");
             Console.ReadKey();
 
             // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
